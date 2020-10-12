@@ -1,0 +1,67 @@
+---
+title: "jt3174_HW2"
+author: "Jingyi Tang"
+date: "10/12/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+
+set.seed(1)
+knitr::opts_chunk$set(echo = TRUE)
+
+# load library
+library(tidyverse)
+
+#set workding directory
+setwd("/Users/jt/Downloads/Columbia_University/P8157_Longitudinal/LDA_HW2")
+getwd()
+
+```
+
+# Tidy Data
+
+```{r}
+
+# Short cut for insert code chuck: Cmd + option + i
+# relative path for mac: use . for relative path
+
+#################################################################
+
+# read txt file, tab-delimited, skin.txt
+skin = read.table("./data/skin.txt", skip = 1)
+
+# short preview of skin to make sure that we are on the right track
+head(skin)
+
+# assign names to each variables
+colnames(skin) = c("id", "center", "age", "skin", "gender", "exposure", "y", "treatment", "year")
+
+# check the data tidied
+head(skin)
+
+#################################################################
+
+# read txt file, space-delimited, toenail.txt
+toenail = read.table("./data/toenail.txt", skip = 1)
+
+# check
+head(toenail)
+
+# assign column names
+colnames(toenail) = c("id", "response", "treatment", "month", "visit")
+
+# check
+head(toenail)
+
+```
+
+Data tidy is finished.
+
+# Question 1
+
+In a randomized, double-blind, __parallel-group__, multicenter study comparing __two oral treatments (denoted A and B)__ for toe-nail infection (De Backer etal., 1998; also see Lesaffre and Spiessons, 2001), patients were evaluated for __the degree of onycholysis__ (the degree of separation of the nail plate from the nail-bed) at __baseline (week 0) and at weeks 4, 8, 12, 24, 36, and 48 thereafter__. The onycholysis outcome variable is __binary__ (none or mild versus moderate or severe). The binary outcome was evaluated on __294 patients__ comprising a total of __1908 measurements__. The main objective of the analyses is to *__compare the effects of oral treatments A and B__* on *__changes in the probability of the binary onycholysis outcome__* over the duration of the study. The raw data are stored in an external file: toenail.dat. Each row of the data set contains the following five variables: ID, Y, Treatment, Month, Visit. The binary onycholysis __outcome variable Y__ is _coded 0 = none or mild, 1 = moderate or severe_. The categorical variable __Treatment__ is _coded 1 = oral treatment A, 0 = oral treatment B_.
+The variable Month denotes the exact timing of measurements in months. The variable Visit denotes the visit number (visit numbers 1-7 correspond to scheduled visits at 0, 4, 8, 12, 24, 36, and 48 weeks).
+
+## Question 1 - Part 1
+
