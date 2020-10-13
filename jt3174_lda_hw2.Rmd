@@ -21,7 +21,7 @@ getwd()
 
 # Tidy Data
 
-```{r}
+```{r read and tidy data}
 
 # Short cut for insert code chuck: Cmd + option + i
 # relative path for mac: use . for relative path
@@ -37,6 +37,9 @@ head(skin)
 # assign names to each variables
 colnames(skin) = c("id", "center", "age", "skin", "gender", "exposure", "y", "treatment", "year")
 
+# make adjustments to appriate variables
+skin$id = as.factor(skin$id)
+
 # check the data tidied
 head(skin)
 
@@ -51,6 +54,10 @@ head(toenail)
 # assign column names
 colnames(toenail) = c("id", "response", "treatment", "month", "visit")
 
+# make adjustments to appriate variables
+toenail$id = as.factor(toenail$id)
+toenail$treatment = as.factor(toenail$treatment)
+
 # check
 head(toenail)
 
@@ -64,4 +71,13 @@ In a randomized, double-blind, __parallel-group__, multicenter study comparing _
 The variable Month denotes the exact timing of measurements in months. The variable Visit denotes the visit number (visit numbers 1-7 correspond to scheduled visits at 0, 4, 8, 12, 24, 36, and 48 weeks).
 
 ## Question 1 - Part 1
+
+Consider a marginal model for the log odds of moderate or severe onycholysis. Using GEE, set up a suitable model assuming linear trends. Use month as the time variable. Assume “exchangeable”
+correlation for the association among the repeated binary responses.
+
+```{r}
+
+
+
+```
 

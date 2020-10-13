@@ -392,6 +392,9 @@ head(skin)</code></pre>
 <pre class="r"><code># assign names to each variables
 colnames(skin) = c(&quot;id&quot;, &quot;center&quot;, &quot;age&quot;, &quot;skin&quot;, &quot;gender&quot;, &quot;exposure&quot;, &quot;y&quot;, &quot;treatment&quot;, &quot;year&quot;)
 
+# make adjustments to appriate variables
+skin$id = as.factor(skin$id)
+
 # check the data tidied
 head(skin)</code></pre>
 <pre><code>##       id center age skin gender exposure y treatment year
@@ -418,6 +421,10 @@ head(toenail)</code></pre>
 <pre class="r"><code># assign column names
 colnames(toenail) = c(&quot;id&quot;, &quot;response&quot;, &quot;treatment&quot;, &quot;month&quot;, &quot;visit&quot;)
 
+# make adjustments to appriate variables
+toenail$id = as.factor(toenail$id)
+toenail$treatment = as.factor(toenail$treatment)
+
 # check
 head(toenail)</code></pre>
 <pre><code>##   id response treatment      month visit
@@ -434,6 +441,7 @@ head(toenail)</code></pre>
 <p>In a randomized, double-blind, <strong>parallel-group</strong>, multicenter study comparing <strong>two oral treatments (denoted A and B)</strong> for toe-nail infection (De Backer etal., 1998; also see Lesaffre and Spiessons, 2001), patients were evaluated for <strong>the degree of onycholysis</strong> (the degree of separation of the nail plate from the nail-bed) at <strong>baseline (week 0) and at weeks 4, 8, 12, 24, 36, and 48 thereafter</strong>. The onycholysis outcome variable is <strong>binary</strong> (none or mild versus moderate or severe). The binary outcome was evaluated on <strong>294 patients</strong> comprising a total of <strong>1908 measurements</strong>. The main objective of the analyses is to <em><strong>compare the effects of oral treatments A and B</strong></em> on <em><strong>changes in the probability of the binary onycholysis outcome</strong></em> over the duration of the study. The raw data are stored in an external file: toenail.dat. Each row of the data set contains the following five variables: ID, Y, Treatment, Month, Visit. The binary onycholysis <strong>outcome variable Y</strong> is <em>coded 0 = none or mild, 1 = moderate or severe</em>. The categorical variable <strong>Treatment</strong> is <em>coded 1 = oral treatment A, 0 = oral treatment B</em>. The variable Month denotes the exact timing of measurements in months. The variable Visit denotes the visit number (visit numbers 1-7 correspond to scheduled visits at 0, 4, 8, 12, 24, 36, and 48 weeks).</p>
 <div id="question-1---part-1" class="section level2">
 <h2>Question 1 - Part 1</h2>
+<p>Consider a marginal model for the log odds of moderate or severe onycholysis. Using GEE, set up a suitable model assuming linear trends. Use month as the time variable. Assume “exchangeable” correlation for the association among the repeated binary responses.</p>
 </div>
 </div>
 
